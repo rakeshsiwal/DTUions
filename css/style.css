@@ -3,29 +3,40 @@
     margin: 0px;
 }
 .main{
-    overflow-x: hidden;
-}
-.page1{
-    min-height: 100svh;
     width: 100%;
-    background-color:#e5eaf5;
+    height: 100%;
 }
-.page2{
-    min-height: 100vh;
-    width: 100%;
-    background-color: antiquewhite;
+.page{
+    width: 100vw;
+    height: 100vh;
+    background-color: aliceblue;
 }
-.page1 nav{
+#page1 nav{
     display: flex;
     justify-content: space-between;
     padding: 1vw 1vw;
 }
-.page1 nav .logo-img{
+#page1 nav .logo-img{
     display: flex;
     height: 5vw;
     width: 5vw;
     background-image: url("../img/apple-touch-icon.png");
     background-size: 5vw;
+}
+#page1 .headline .textshadow{
+    margin:0 2vw;
+    border: 3px solid rgba(0, 0, 255, 0.691);
+    filter: drop-shadow(0 0 100px white);
+    filter: blur(12px);
+}
+#page1 .headline{
+    margin-top: 10vw;
+}
+#page1 .headline h1{
+    color:#e5eaf5;
+    font-size: 23vw;
+    filter: drop-shadow(0px 0px 20px rgba(120, 82, 255, 0.753));
+    text-align: center;
 }
 /* .............. */
 .btnnav{
@@ -74,4 +85,3 @@
 .btnnav a:hover{
     color: white; 
 }
-
