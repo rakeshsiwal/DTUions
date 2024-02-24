@@ -22,16 +22,31 @@
                                             
                 </nav>
             </header>
-            <!-- <div class="headline">
-                 <h1>DTUions</h1>
-                 <div class="textshadow"></div>
-            </div> -->
-            <div class="vedio"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/SzbwibyiNkE?si=DqP2BFyFcXA-IztD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>…</iframe></div>
-        </div>
-        <div class="page" id="page2"></div>
-        <div class="page" id="page3"></div>
-        <div class="page" id="page4"></div>
+            <h1 style="text-align: center;font-weight: 800; text-shadow: 10px 10px 20px rgb(34, 34, 34);color: beige;font-size: 60px;">CSS styles</h1>
+            <div class="text-options">
+                <div class="option" id="op1" data-img="img/mv1.png" ><a href="/html/movingcard.html">Card Design 1</a></div>
+                <div class="option" id="op1" data-img="img/mv2.png" ><a href="/html/movingcard2.html">Card Design 2</a></div>
+                <div class="option" id="op1" data-img="img/mv3.png" ><a href="/html/t.html">Card Design 3</a></div>
+                <div class="option" id="op1" data-img="img/mv4.png" ><a href="/html/try.html">Card Design 4</a></div>
+                <div class="option" id="op1" data-img="/img1.jpg" ><a href="#">text 1</a></div>
+            </div>
+            <div class="imageBox"></div>
     </div>
-                
+    <script>console.log("hi");
+        var textoption = document.querySelector(".text-options");
+        var imgbox = document.querySelector(".imageBox");
+        textoption.addEventListener("mouseenter", function () {
+            imgbox.style.display = 'block';
+        })
+        textoption.addEventListener("mouseleave", function () {
+            imgbox.style.display = "none";
+        })
+        var options = document.querySelectorAll(".option")
+        options.forEach(function (e) {
+            e.addEventListener('mouseenter', function () {
+                var image = e.getAttribute("data-img")
+                imgbox.style.backgroundImage = `url(${image})`
+            })
+        })</script>      
 </body>
 </html>

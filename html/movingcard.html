@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moving card</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height: 100vh;
+        }
+        main{
+            background-color: rgba(236, 236, 236, 0.947);
+            display: flex;
+            height: 100%;
+            padding-left: 200px;
+            overflow: hidden;
+        }
+        .card{
+            background: linear-gradient(to right, #8e44ad, #3498db);
+            width: 250px;
+            height: 400px;
+            border-radius: 30px;
+            /* box-shadow: 0 0 20px  rgba(250, 235, 215, 0.584); */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* border-bottom: 5px solid  rgba(169, 159, 145, 0.574); */
+            /* border-left: 5px solid   rgba(169, 159, 145, 0.624); */
+            border-right: 3px solid #ffffffd1;
+            border-top: 5px solid #ffffffd1;
+            transition:all ease-in-out 0.1s;
+            margin-top: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 80px;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-weight: 700;
+            text-shadow: -4px -4px 10px rgba(45, 45, 45, 0.796);
+                
+        }
+        .card:hover{
+        /* transform: rotateX(-10deg) rotateY(10deg) translateZ(50px); */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.528);
+    }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="card">Card</div>
+    </main>
+    <script>
+        var cursorPositionElement = document.getElementById("cursorPosition");
+        var card=document.querySelector(".card");
+        document.addEventListener('mousemove', function(event) {
+            var posX = event.clientX-305;
+            var posY = -event.clientY+220;
+            var a1 = (Math.atan(posX/100)*(180/Math.PI))/3+"deg";
+            var a2 = (Math.atan(posY/100)*(180/Math.PI))/3+"deg";     
+            card.style.transform = `perspective(500px) rotateY(${a1})rotateX(${a2})`;
+        })
+    </script>
+</body>
+</html>

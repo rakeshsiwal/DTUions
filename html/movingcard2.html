@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Interactive Card</title>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+        overflow: hidden;
+    }
+
+    .card {
+        background: linear-gradient(135deg, #3498db, #2ecc71);
+        width: 200px;
+        height: 300px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border-bottom: 5px solid rgba(169, 159, 145, 0.5);
+        border-left: 5px solid rgba(169, 159, 145, 0.5);
+        transform-style: preserve-3d;
+        transition: transform 0.3s, box-shadow 0.3s;
+        margin-top: 80px;
+    }
+
+    .card:hover {
+        transform: translateZ(40px) rotateX(-15deg) rotateY(15deg);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+        border-radius: 20px;
+    }
+
+    .card-content {
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+        text-align: center;
+        color: #fff;
+        font-family: Arial, sans-serif;
+    }
+
+    .card-content h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .card-content p {
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+<div class="card" id="card">
+    <div class="card-content">
+        <h2>Interactive Card</h2>
+        <p>Hover over me!</p>
+    </div>
+</div>
+<script>
+    const card = document.getElementById('card');
+
+    document.addEventListener('mousemove', function(event) {
+        const posX = event.clientX - window.innerWidth / 2;
+        const posY = event.clientY - window.innerHeight / 2;
+        const rotateX = posY / 30;
+        const rotateY = posX / 30;
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+    });
+</script>
+</body>
+</html>
+
+
+
+
+
+
